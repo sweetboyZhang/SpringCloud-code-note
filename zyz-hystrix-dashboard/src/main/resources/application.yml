@@ -1,0 +1,11 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: lagou-cloud-hystrix-dashboard
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:
+        http://zyz-eureka-server-1:8761/eureka/,http://zyz-eureka-server-1:8762/eureka/

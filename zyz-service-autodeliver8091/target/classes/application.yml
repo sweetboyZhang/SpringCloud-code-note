@@ -1,0 +1,57 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: zyz-service-autodeliver
+
+# \u670D\u52A1\u6CE8\u518C
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://zyz-eureka-server-1:8761/eureka,http://zyz-eureka-server-2:8762/eureka
+
+
+#\u9488\u5BF9\u7684\u88AB\u8C03\u2F64\u2F45\u5FAE\u670D\u52A1\u540D\u79F0,\u4E0D\u52A0\u5C31\u662F\u5168\u5C40\u2F63\u6548
+zyz-service-resume:
+  ribbon:
+    #\u8BF7\u6C42\u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4
+    ConnectTimeout: 2000
+    #\u8BF7\u6C42\u5904\u7406\u8D85\u65F6\u65F6\u95F4
+    ReadTimeout: 5000
+    #\u5BF9\u6240\u6709\u64CD\u4F5C\u90FD\u8FDB\u2F8F\u91CD\u8BD5
+    OkToRetryOnAllOperations: true
+    ####\u6839\u636E\u5982\u4E0A\u914D\u7F6E\uFF0C\u5F53\u8BBF\u95EE\u5230\u6545\u969C\u8BF7\u6C42\u7684\u65F6\u5019\uFF0C\u5B83\u4F1A\u518D\u5C1D\u8BD5\u8BBF\u95EE\u2F00\u6B21\u5F53\u524D\u5B9E\u4F8B\uFF08\u6B21\u6570\u7531MaxAutoRetries\u914D\u7F6E\uFF09\uFF0C
+    ####\u5982\u679C\u4E0D\u2F8F\uFF0C\u5C31\u6362\u2F00\u4E2A\u5B9E\u4F8B\u8FDB\u2F8F\u8BBF\u95EE\uFF0C\u5982\u679C\u8FD8\u4E0D\u2F8F\uFF0C\u518D\u6362\u2F00\u6B21\u5B9E\u4F8B\u8BBF\u95EE\uFF08\u66F4\u6362\u6B21\u6570\u7531MaxAutoRetriesNextServer\u914D\u7F6E\uFF09\uFF0C
+    ####\u5982\u679C\u4F9D\u7136\u4E0D\u2F8F\uFF0C\u8FD4\u56DE\u5931\u8D25\u4FE1\u606F\u3002
+    MaxAutoRetries: 0 #\u5BF9\u5F53\u524D\u9009\u4E2D\u5B9E\u4F8B\u91CD\u8BD5\u6B21\u6570\uFF0C\u4E0D\u5305\u62EC\u7B2C\u2F00\u6B21\u8C03\u2F64
+    MaxAutoRetriesNextServer: 0 #\u5207\u6362\u5B9E\u4F8B\u7684\u91CD\u8BD5\u6B21\u6570
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #\u8D1F\u8F7D\u7B56\u7565\u8C03\u6574
+
+# \u5F00\u542FFeign\u7684\u7194\u65AD\u529F\u80FD
+feign:
+  hystrix:
+    enabled: true
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 2
+
+  compression:
+    request:
+      enabled: true # \u5F00\u542F\u8BF7\u6C42\u538B\u7F29
+      mime-types: text/html,application/xml,application/json # \u8BBE\u7F6E\u538B\u7F29\u7684\u6570\u636E\u7C7B\u578B\uFF0C\u6B64\u5904\u4E5F\u662F\u9ED8\u8BA4\u503C
+      min-request-size: 2048 # \u8BBE\u7F6E\u89E6\u53D1\u538B\u7F29\u7684\u2F24\u2F29\u4E0B\u9650\uFF0C\u6B64\u5904\u4E5F\u662F\u9ED8\u8BA4\u503C
+    response:
+      enabled: true # \u5F00\u542F\u54CD\u5E94\u538B\u7F29
+
+
+logging:
+  level:
+    # Feign\u2F47\u5FD7\u53EA\u4F1A\u5BF9\u2F47\u5FD7\u7EA7\u522B\u4E3Adebug\u7684\u505A\u51FA\u54CD\u5E94
+    com.zyz.service.ResumeServiceFeignClient: debug
+
+
+
