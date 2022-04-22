@@ -12,6 +12,12 @@
     <artifactId>zyz-config-server</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.zyz</groupId>
+            <artifactId>zyz-service-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+
+        </dependency>
         <!--config配置中⼼服务端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

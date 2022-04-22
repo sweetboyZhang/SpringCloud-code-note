@@ -14,6 +14,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.zyz</groupId>
+            <artifactId>zyz-service-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+
+        </dependency>
         <!--导⼊spring cloud oauth2依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

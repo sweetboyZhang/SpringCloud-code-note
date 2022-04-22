@@ -13,6 +13,7 @@
         <module>zyz-service-autodeliver8092</module>
         <module>zyz-service-resume-8081</module>
         <module>zyz-service-resume-8082</module>
+        <module>zyz-service-resume-8083</module>
         <module>zyz-eureka-server-8761</module>
         <module>zyz-eureka-server-8762</module>
         <module>zyz-hystrix-dashboard</module>
@@ -36,6 +37,14 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>Hoxton.SR12</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -70,11 +79,6 @@
             <artifactId>lombok</artifactId>
             <version>1.18.4</version>
             <scope>provided</scope>
-        </dependency>
-        <!-- Eureka客户端-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <!-- Actuator可以帮助你监控和管理Spring Boot应⽤-->
         <dependency>
