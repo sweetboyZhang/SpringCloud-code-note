@@ -1,0 +1,26 @@
+server:
+  port: 8102
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:
+        http://zyz-eureka-server-1:8761/eureka/,http://zyz-eureka-server-2:8762/eureka/
+
+spring:
+  application:
+    name: zyz-gateway-server
+  cloud:
+    gateway:
+      routes:
+        - id: service-autodeliver-router
+          uri: lb://zyz-service-autodeliver
+          predicates:
+            - Path=/autodeliver/**
+
+
+        - id: service-resume-router
+          uri: lb://zyz-service-resume
+          predicates:
+            - Path=/resume/**
+

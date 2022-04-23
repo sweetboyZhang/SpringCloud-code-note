@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: zyz-service-resume
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: fb1ea0fa-5af3-4a22-8bec-d3d93e574117
+
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: fb1ea0fa-5af3-4a22-8bec-d3d93e574117
+        group: zyz-parent
+        # 默认为spring.application.name
+        prefix: zyz-service-resume
+        file-extension: yaml
+
+## 服务注册
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://zyz-eureka-server-1:8761/eureka,http://zyz-eureka-server-2:8762/eureka
+
+
+
+

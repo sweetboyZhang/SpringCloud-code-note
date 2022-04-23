@@ -1,0 +1,46 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: zyz-service-autodeliver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 13a7ac1b-e6a6-47f3-8aa1-c0dca87dbb8b
+
+zyz-service-resume:
+  ribbon:
+    ConnectTimeout: 2000
+    ReadTimeout: 5000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 0
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+
+feign:
+  hystrix:
+    enabled: true
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 2
+
+  compression:
+    request:
+      enabled: true
+      mime-types: text/html,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+
+
+logging:
+  level:
+    com.zyz.service.ResumeServiceFeignClient: debug
+
+
+

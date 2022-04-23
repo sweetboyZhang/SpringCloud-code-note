@@ -1,0 +1,39 @@
+server:
+  port: 9003
+
+#注册到Eureka服务中⼼
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://zyz-eureka-server-1:8761/eureka,http://zyz-eureka-server-2:8762/eureka
+
+spring:
+  application:
+    name: zyz-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sweetboyZhang/zyz-config-repo.git
+          username: sweetboyZhang
+          # TODO 提交时修改密码
+          password: 123456
+          skip-ssl-validation: true
+          search-paths:
+            - zyz-config-repo
+      # 读取分⽀
+      label: main
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: zhangyuzhen
+    password: 2824199842
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
