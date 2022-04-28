@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @Version V1.0
  * @Date 2022/4/19 10:09
  */
-@FeignClient(value = "zyz-service-resume",fallback = ResumeFallback.class,path = "/resume")
+//@FeignClient(value = "zyz-service-resume",fallback = ResumeFallback.class,path = "/resume")
+@FeignClient(value = "zyz-service-resume",path = "/resume")
 public interface ResumeServiceFeignClient {
 
     @GetMapping("/getStatus/{userId}")

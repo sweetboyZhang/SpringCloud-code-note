@@ -12,12 +12,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @Version V1.0
  * @Date 2022/4/15 18:55
  */
-// @SpringCloudApplication = @SpringBootApplication + @EnableDiscoveryClient + @EnableCircuitBreaker
 @SpringBootApplication
 @EnableDiscoveryClient
-// @EnableCircuitBreaker
-@EnableFeignClients // 包含熔断器
-public class ZyzServiceAutodeliverApplication8091 {
+public class ZyzServiceAutodeliverApplication8093 {
     public static void main(String[] args) {
         SpringApplication.run(ZyzServiceAutodeliverApplication8093.class, args);
     }

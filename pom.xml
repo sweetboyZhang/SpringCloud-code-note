@@ -11,15 +11,18 @@
         <module>zyz-service-common</module>
         <module>zyz-service-autodeliver8091</module>
         <module>zyz-service-autodeliver8092</module>
+        <module>zyz-service-autodeliver8093</module>
         <module>zyz-service-resume-8081</module>
         <module>zyz-service-resume-8082</module>
         <module>zyz-service-resume-8083</module>
+        <module>zyz-service-resume-8084</module>
         <module>zyz-eureka-server-8761</module>
         <module>zyz-eureka-server-8762</module>
         <module>zyz-hystrix-dashboard</module>
         <module>zyz-hystrix-turbine</module>
         <module>zyz-config-server</module>
         <module>zyz-oauth-server</module>
+        <module>zyz-service-resume-api</module>
     </modules>
 
     <!--⽗⼯程打包⽅式为pom-->
@@ -84,16 +87,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <!--热部署-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
         </dependency>
     </dependencies>
 

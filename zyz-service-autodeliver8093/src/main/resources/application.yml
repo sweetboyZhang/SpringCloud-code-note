@@ -1,6 +1,8 @@
 server:
-  port: 8091
+  port: 8093
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: zyz-service-autodeliver
   cloud:
@@ -32,7 +34,11 @@ spring:
             data-type: json
             rule-type: degrade # 类型来⾃RuleType类
 
-
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    subscribed-services: zyz-service-resume
 
 management:
   endpoints:
@@ -42,28 +48,5 @@ management:
   endpoint:
     health:
       show-details: always
-feign:
-#  hystrix:
-#    enabled: true
-#    command:
-#      default:
-#        execution:
-#          isolation:
-#            thread:
-#              timeoutInMilliseconds: 2
-
-#  compression:
-#    request:
-#      enabled: true
-#      mime-types: text/html,application/xml,application/json
-#      min-request-size: 2048
-#    response:
-#      enabled: true
-
-
-logging:
-  level:
-    com.zyz.service.ResumeServiceFeignClient: debug
-
 
 

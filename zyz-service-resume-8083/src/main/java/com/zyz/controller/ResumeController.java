@@ -25,12 +25,12 @@ public class ResumeController {
     @GetMapping("/getStatus/{userId}")
     public String getResumeStatusByUserId(@PathVariable("userId") Integer userId){
 
-        // 模拟耗时操作
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        // 模拟耗时操作
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         ResumePO resume = resumeService.findDefaultResumeByUserId(userId);
 
